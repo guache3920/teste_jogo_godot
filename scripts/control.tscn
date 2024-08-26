@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://gtuadjlc8axs"]
+
+[ext_resource type="Script" path="res://scripts/Control.gd" id="1_dnlgp"]
+[ext_resource type="PackedScene" uid="uid://dlfu01evkwk7h" path="res://scripts/timer.tscn" id="2_5fvo7"]
+[ext_resource type="FontFile" uid="uid://bipx4um4s0sh7" path="res://pixel-bit-advanced.ttf" id="3_u8501"]
+
+[sub_resource type="Theme" id="Theme_0vd32"]
+
+[node name="controle_timer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dnlgp")
+limite_minutos = 0
+limite_segundos = 20
+
+[node name="Timer" parent="." instance=ExtResource("2_5fvo7")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 555.0
+offset_top = -1.0
+offset_right = 556.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Tempo" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_0vd32")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_u8501")
+theme_override_font_sizes/font_size = 24
+text = "00:00"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

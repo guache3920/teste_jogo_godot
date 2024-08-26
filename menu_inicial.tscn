@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf7siii2aw055"]
+
+[ext_resource type="FontFile" uid="uid://bipx4um4s0sh7" path="res://pixel-bit-advanced.ttf" id="1_5ru61"]
+[ext_resource type="Script" path="res://menu_inicial.gd" id="1_djtxy"]
+[ext_resource type="Texture2D" uid="uid://c2hkrwgewrve8" path="res://Play_64.png" id="2_5ogne"]
+[ext_resource type="Texture2D" uid="uid://c838801mayfu3" path="res://fundo_mine.jpg" id="2_ividj"]
+[ext_resource type="Texture2D" uid="uid://djk76nyny087h" path="res://Close_64.png" id="3_yl1dl"]
+
+[sub_resource type="Theme" id="Theme_hqt7e"]
+Button/colors/icon_focus_color = Color(1, 0, 0, 1)
+Button/colors/icon_hover_color = Color(1, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_nil2v"]
+Button/colors/icon_focus_color = Color(1, 0, 0, 1)
+Button/colors/icon_hover_color = Color(1, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0.341176, 0, 0, 1)
+
+[node name="menu_inicial" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_djtxy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+offset_right = 1151.0
+offset_bottom = 646.0
+texture = ExtResource("2_ividj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 58.0
+offset_right = 177.0
+offset_bottom = 133.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Texto babo" type="Label" parent="Control/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5ru61")
+theme_override_font_sizes/font_size = 25
+text = "         menu
+ joguinho de teste
+"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -36.0
+offset_right = 62.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/MarginContainer"]
+layout_mode = 2
+
+[node name="sair" type="Button" parent="Control2/MarginContainer/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = SubResource("Theme_hqt7e")
+icon = ExtResource("3_yl1dl")
+
+[node name="entrar" type="Button" parent="Control2/MarginContainer/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = SubResource("Theme_nil2v")
+icon = ExtResource("2_5ogne")
+
+[connection signal="pressed" from="Control2/MarginContainer/HBoxContainer/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="Control2/MarginContainer/HBoxContainer/entrar" to="." method="_on_entrar_pressed"]

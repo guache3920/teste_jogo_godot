@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://crsuejbbr3f1s"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_b0th0"]
+[ext_resource type="Texture2D" uid="uid://dxx72injomttn" path="res://Restart_64.png" id="2_7kea2"]
+[ext_resource type="Texture2D" uid="uid://c2hkrwgewrve8" path="res://Play_64.png" id="3_5uub0"]
+[ext_resource type="Texture2D" uid="uid://djk76nyny087h" path="res://Close_64.png" id="4_w5t00"]
+
+[sub_resource type="Theme" id="Theme_ej201"]
+Button/colors/icon_focus_color = Color(0.172549, 0.345098, 0.0941176, 1)
+Button/colors/icon_hover_color = Color(0.180392, 0.356863, 0.2, 1)
+Button/colors/icon_pressed_color = Color(0, 0.196078, 0, 1)
+
+[sub_resource type="Theme" id="Theme_36und"]
+Button/colors/icon_focus_color = Color(0.219608, 0.560784, 0.266667, 1)
+Button/colors/icon_hover_color = Color(0.309804, 0.572549, 0.286275, 1)
+Button/colors/icon_pressed_color = Color(0.278431, 0.439216, 0, 1)
+
+[sub_resource type="Theme" id="Theme_kiyqe"]
+Button/colors/icon_focus_color = Color(0.270588, 0.580392, 0.14902, 1)
+Button/colors/icon_hover_color = Color(0.345098, 0.6, 0.227451, 1)
+Button/colors/icon_pressed_color = Color(0.419608, 0.509804, 0.254902, 1)
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_b0th0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.505344, 0.505344, 0.505344, 0.243137)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -72.0
+offset_right = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="reinicar" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ej201")
+theme_override_font_sizes/font_size = 20
+icon = ExtResource("2_7kea2")
+flat = true
+
+[node name="voltar" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_36und")
+icon = ExtResource("3_5uub0")
+flat = true
+
+[node name="Pause" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_kiyqe")
+icon = ExtResource("4_w5t00")
+flat = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/reinicar" to="." method="_on_reinicar_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Pause" to="." method="_on_pause_pressed"]

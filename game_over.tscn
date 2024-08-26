@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfqp142mrnflu"]
+
+[ext_resource type="FontFile" uid="uid://dce54ba0dpamo" path="res://scripts/pixel-bit-advanced.ttf" id="1_o74m3"]
+[ext_resource type="Script" path="res://game_over.gd" id="1_swucx"]
+[ext_resource type="Texture2D" uid="uid://chqgfoadv2qqs" path="res://Back_64.png" id="3_2ixbi"]
+[ext_resource type="FontFile" uid="uid://bipx4um4s0sh7" path="res://pixel-bit-advanced.ttf" id="3_4cts1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b8dym"]
+
+[node name="game_over" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_swucx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 5.0
+offset_bottom = 29.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 135.0
+offset_top = 187.0
+offset_right = 899.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="volta_morto" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4cts1")
+theme_override_font_sizes/font_size = 30
+text = "Pressione Enter para Reiniciar"
+icon = ExtResource("3_2ixbi")
+flat = true
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control2"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 81.0
+offset_right = 880.0
+offset_bottom = 224.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control2/MarginContainer2"]
+modulate = Color(1, 0.0392157, 0.054902, 1)
+self_modulate = Color(0.517647, 1, 1, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.788235, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.658911, 1.22733e-06, 9.62615e-08, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_o74m3")
+theme_override_font_sizes/font_size = 10
+text = "                       Game Over
+Voce e pessimo, joga de novo, meu skibidi sigma"
+label_settings = SubResource("LabelSettings_b8dym")
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/volta_morto" to="." method="_on_volta_morto_pressed"]

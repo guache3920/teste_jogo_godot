@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dscmsroolinjg"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_fwjix"]
+[ext_resource type="Texture2D" uid="uid://th4ecbveyrth" path="res://Assets_aula1/Terrain/Terrain (16x16).png" id="2_itea3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eawok"]
+size = Vector2(48, 16)
+
+[node name="plataforma_movel" type="Node2D"]
+position = Vector2(102, 96)
+script = ExtResource("1_fwjix")
+
+[node name="plataforma" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma"]
+texture = ExtResource("2_itea3")
+region_enabled = true
+region_rect = Rect2(272, 128, 48, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
+shape = SubResource("RectangleShape2D_eawok")
